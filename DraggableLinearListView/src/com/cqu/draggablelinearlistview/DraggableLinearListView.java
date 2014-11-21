@@ -283,48 +283,37 @@ public class DraggableLinearListView extends LinearListView{
 	public boolean onInterceptTouchEvent(MotionEvent event) {
 		switch(MotionEventCompat.getActionMasked(event)){
 			case MotionEvent.ACTION_DOWN: {
-				System.out.println("11111");
 				//存在一个潜在的拖拽对象或正在执行还原动画
 				if(mDragChildView.valid){
-					System.out.println("22222");
 					return false;
 				}
 				mDownY = (int) MotionEventCompat.getY(event, 0);
 				mActivePointerId = MotionEventCompat.getPointerId(event, 0);
-				System.out.println("33333");
 				break;
 			}
 			case MotionEvent.ACTION_MOVE: {
-				System.out.println("44444");
 				if(!mDragChildView.valid){
-					System.out.println("55555");
 					return false;
 				}
 
 				if(INVALID_POINTER_ID == mActivePointerId){
-					System.out.println("66666");
 					break;
 				}
 				final int pointerIndex = event.findPointerIndex(mActivePointerId);
 				final float y = MotionEventCompat.getY(event, pointerIndex);
 				final float dy = y - mDownY;
-				System.out.println("Dy---" + dy + "---Slop---" + slop);
 				if(Math.abs(dy) > slop){
 					startDrag();
-					System.out.println("77777");
 					return true;
 				}
-				System.out.println("88888");
 				return false;
 			}
 			case MotionEvent.ACTION_POINTER_UP: {
-				System.out.println("99999");
 				final int pointerIndex = MotionEventCompat.getActionIndex(event);
 				final int pointerId = MotionEventCompat.getPointerId(event, pointerIndex);
 
 				if(pointerId != mActivePointerId){
-					System.out.println("aaaaa");
-					break;// if active pointer, fall through and cancel!
+					break;
 				}
 			}
 			case MotionEvent.ACTION_CANCEL:
@@ -334,7 +323,6 @@ public class DraggableLinearListView extends LinearListView{
 				if(mDragChildView.valid){
 					mDragChildView.setInvalid();
 				}
-				System.out.println("bbbbb");
 				break;
 			}
 		}
@@ -345,15 +333,12 @@ public class DraggableLinearListView extends LinearListView{
 	public boolean onTouchEvent(MotionEvent event) {
 		switch(MotionEventCompat.getActionMasked(event)){
 			case MotionEvent.ACTION_DOWN: {
-				System.out.println("ccccc");
 				
 				if( mDragTriggerType == DragTriggerType.SHORT_PRESS ){
 					if(!mDragChildView.valid || mDragChildView.settling()){
-						System.out.println("ddddd");
 						return false;
 					}
 					startDrag();
-					System.out.println("eeeee");
 				} else {
 					
 				}
@@ -361,7 +346,6 @@ public class DraggableLinearListView extends LinearListView{
 				return true;
 			}
 			case MotionEvent.ACTION_MOVE: {
-				System.out.println("fffff");
 				int pointerIndex = event.findPointerIndex(mActivePointerId);
 				int lastEventY = (int) MotionEventCompat.getY(event, pointerIndex);
 				int lastEventX = (int) MotionEventCompat.getX(event, pointerIndex);
@@ -374,42 +358,35 @@ public class DraggableLinearListView extends LinearListView{
 				}
 				
 				if(!mDragChildView.dragging){
-					System.out.println("ggggg");
 					break;
 				}
 				if(INVALID_POINTER_ID == mActivePointerId){
-					System.out.println("hhhhh");
 					break;
 				}
 
 				int deltaY = lastEventY - mDownY;
 
 				onDrag(deltaY);
-				System.out.println("iiiii");
 				return true;
 			}
 			case MotionEvent.ACTION_POINTER_UP: {
-				System.out.println("jjjjj");
 				final int pointerIndex = MotionEventCompat.getActionIndex(event);
 				final int pointerId = MotionEventCompat.getPointerId(event, pointerIndex);
 
 				mHandler.removeCallbacks( mLongPressRunnable );
 				
 				if(pointerId != mActivePointerId){
-					System.out.println("kkkkk");
-					break; // if active pointer, fall through and cancel!
+					break;
 				}
 			}
 			case MotionEvent.ACTION_CANCEL:
 			case MotionEvent.ACTION_UP: {
-				System.out.println("LLLLL");
 				onTouchEnded();
 
 				mHandler.removeCallbacks( mLongPressRunnable );
 				
 				if(mDragChildView.dragging){
 					stopDrag();
-					System.out.println("MMMMM");
 				}
 				return true;
 			}
