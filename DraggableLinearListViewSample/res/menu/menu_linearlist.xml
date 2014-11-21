@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+	<item
+		android:id="@+id/action_divider_refreshone"
+		android:orderInCategory="1"
+		android:title="@string/action_divider_modify_refreshone"
+		app:showAsAction="never"/>
+	
+	<item
+		android:id="@+id/action_divider_refreshgroup"
+		android:orderInCategory="2"
+		android:title="@string/action_divider_modify_refreshgroup"
+		app:showAsAction="never"/>
+	
+	<item
+		android:id="@+id/action_divider_refreshall"
+		android:orderInCategory="3"
+		android:title="@string/action_divider_modify_refreshall"
+		app:showAsAction="never"/>
+	
+	<item
+		android:id="@+id/action_divider_rebuild"
+		android:orderInCategory="4"
+		android:title="@string/action_divider_modify_rebuild"
+		app:showAsAction="never"/>
+
+</menu>
