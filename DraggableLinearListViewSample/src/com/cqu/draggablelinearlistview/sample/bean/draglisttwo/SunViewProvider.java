@@ -30,6 +30,7 @@ public class SunViewProvider implements IViewProvider{
 			convertView.mAnchorView = convertView.mConvertView;
 		} else {
 			mViewHolder = (ViewHolder)convertView.mConvertView.getTag();
+			convertView.mAnchorView = convertView.mConvertView;
 		}
 		
 		mViewHolder.position = position;

@@ -33,6 +33,18 @@ public class DraggableListDataSet implements IDataSet{
 	public Sun getSun() {
 		return mSun;
 	}
+	
+	public void modify(){
+		mWind.modify();
+		mAdvice.modify();
+		mSun.modify();
+	}
+	
+	public void restore(){
+		mWind.restore();
+		mAdvice.restore();
+		mSun.restore();
+	}
 
 
 	public static class WindDataSet{

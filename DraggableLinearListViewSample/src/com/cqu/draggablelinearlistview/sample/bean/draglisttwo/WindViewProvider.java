@@ -37,6 +37,7 @@ public class WindViewProvider implements IViewProvider{
 			convertView.mAnchorView = convertView.mConvertView;
 		} else {
 			mViewHoder = (ViewHolder) convertView.mConvertView.getTag();
+			convertView.mAnchorView = convertView.mConvertView;
 		}
 		
 		mViewHoder.mPosition = position;

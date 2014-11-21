@@ -25,5 +25,8 @@
 	<string name="action_linearlist_modify_refreshall">还原修改的数据</string>
 	<string name="action_linearlist_modify_rebuild">添加新的数据</string>
 	
+	<string name="action_draggablelisttwo_modify">修改数据并全部刷新</string>
+	<string name="action_draggablelisttwo_restore">还原全部数据并刷新</string>
+	
 
 </resources>

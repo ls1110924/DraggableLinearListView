@@ -21,6 +21,7 @@
 			<flag name="shortpress" value="0" />
 			<flag name="longpress" value="1" />
 		</attr>
+		<attr name="needForeground" format="boolean" />
 	</declare-styleable>
 	
 	

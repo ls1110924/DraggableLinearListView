@@ -39,6 +39,7 @@ public class AdviceViewProvider implements IViewProvider{
 			
 		} else {
 			mViewHolder = (ViewHolder) convertView.mConvertView.getTag();
+			convertView.mAnchorView = convertView.mConvertView;
 		}
 		
 		mViewHolder.mPosition = position;

@@ -5,7 +5,7 @@ package com.cqu.draggablelinearlistview.listener;
  * @author A Shuai
  *
  */
-public interface OnDragStateChange {
+public interface OnDragStateChangeListener {
 
 	/**
 	 *	开始拖拽

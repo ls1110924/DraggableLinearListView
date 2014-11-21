@@ -9,7 +9,7 @@ import com.cqu.draggablelinearlistview.extend.DragTriggerType;
 import com.cqu.draggablelinearlistview.extend.DraggableConvertView;
 import com.cqu.draggablelinearlistview.extend.LinearTag;
 import com.cqu.draggablelinearlistview.extend.ViewWithIndex;
-import com.cqu.draggablelinearlistview.listener.OnDragStateChange;
+import com.cqu.draggablelinearlistview.listener.OnDragStateChangeListener;
 import com.cqu.draggablelinearlistview.listener.OnViewSwapListener;
 import com.cqu.draggablelinearlistview.util.DensityUtil;
 import com.cqu.draggablelinearlistview.util.Utils;
@@ -24,8 +24,10 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
@@ -102,6 +104,11 @@ public class DraggableLinearListView extends LinearListView{
 	 */
 	private Drawable mImageTopShadowDrawable;
 	private Drawable mImageBottomShadowDrawable;
+	/**
+	 *	是否需要前景蒙版，及前景蒙版
+	 */
+	private boolean mNeedForegroundMask;
+	private Drawable mImageForegroundMaskDrawable;
 	/* 绘制的边缘阴影高度 */
 	private int mImageShadowHeight;
 
@@ -124,7 +131,7 @@ public class DraggableLinearListView extends LinearListView{
 	private LongPressRunnable mLongPressRunnable = null;
 	private UpdateHandler mHandler = null;
 
-	private OnDragStateChange mOnDragStateChange = null;
+	private OnDragStateChangeListener mOnDragStateChange = null;
 	private OnViewSwapListener mSwapListener = null;
 
 	public DraggableLinearListView(Context context) {
@@ -167,6 +174,8 @@ public class DraggableLinearListView extends LinearListView{
 		mLongPressRunnable = new LongPressRunnable();
 		mHandler = new UpdateHandler(this);
 		
+		mNeedForegroundMask = false;
+		
 	}
 
 	/**
@@ -184,6 +193,7 @@ public class DraggableLinearListView extends LinearListView{
 		
 		TypedArray b = context.obtainStyledAttributes(attrs, R.styleable.DraggableListView);
 		index = b.getInt(R.styleable.DraggableListView_draggableTriggerType, 0);
+		setNeedForegroundMask(b.getBoolean(R.styleable.DraggableListView_needForeground, false));
 		setDragTriggerType(index);
 		b.recycle();
 	}
@@ -245,6 +255,9 @@ public class DraggableLinearListView extends LinearListView{
 			canvas.save();
 			canvas.translate(0, mDragChildView.totalDragOffset);
 			mDragChildView.viewDrawable.draw(canvas);
+			if( mNeedForegroundMask ){
+				mImageForegroundMaskDrawable.draw(canvas);
+			}
 
 			final int left = mDragChildView.viewDrawable.getBounds().left;
 			final int right = mDragChildView.viewDrawable.getBounds().right;
@@ -733,7 +746,7 @@ public class DraggableLinearListView extends LinearListView{
 	 *	设置拖拽监听器
 	 * @param mOnDragStateChange
 	 */
-	public void setOnDragStateChange( OnDragStateChange mOnDragStateChange ){
+	public void setOnDragStateChangeListener( OnDragStateChangeListener mOnDragStateChange ){
 		this.mOnDragStateChange = mOnDragStateChange;
 	}
 
@@ -744,6 +757,40 @@ public class DraggableLinearListView extends LinearListView{
 	 */
 	public void setOnViewSwapListener(OnViewSwapListener swapListener){
 		this.mSwapListener = swapListener;
+	}
+	
+	/**
+	 *	设置是否需要前景蒙版
+	 * @param mNeedForegroundMask
+	 */
+	public void setNeedForegroundMask( boolean mNeedForegroundMask ){
+		if( this.mNeedForegroundMask == mNeedForegroundMask ){
+			return;
+		}
+		this.mNeedForegroundMask = mNeedForegroundMask;
+		if( mNeedForegroundMask ){
+			setForegroundMask(51, Color.BLUE);
+		} else {
+			mImageForegroundMaskDrawable = null;
+		}
+	}
+	
+	/**
+	 *	得到是否需要前景蒙版
+	 * @return
+	 */
+	public boolean isNeedForegroundMask(){
+		return mNeedForegroundMask;
+	}
+	
+	/**
+	 *	设置前景蒙版
+	 * @param mAlpha
+	 * @param mColor
+	 */
+	public void setForegroundMask( int mAlpha, int mColor ){
+		mImageForegroundMaskDrawable = new ColorDrawable(mColor);
+		mImageForegroundMaskDrawable.setAlpha(mAlpha);
 	}
 
 	/**
@@ -832,13 +879,13 @@ public class DraggableLinearListView extends LinearListView{
 			//这里记录了未交换位置时的Y轴坐标
 			final int switchViewStartTop = switchView.getTop();
 
-			if(null != mSwapListener){
-				mSwapListener.onSwap(mDragChildView.view, mDragChildView.position, switchView, switchPosition);
-			}
+//			if(null != mSwapListener){
+//				mSwapListener.onSwap(mDragChildView.view, mDragChildView.position, switchView, switchPosition);
+//			}
 			
 			if( mAdapter != null ){
 				final int mOriginalType = mAdapter.getItemViewType(originalPosition);
-				final int mSwitchPosition = mAdapter.getItemViewType(switchPosition);
+				final int mSwitchType = mAdapter.getItemViewType(switchPosition);
 				ViewWithIndex mOriginalViewIndex = null;
 				ViewWithIndex mSwitchViewIndex = null;
 				
@@ -850,7 +897,7 @@ public class DraggableLinearListView extends LinearListView{
 						break;
 					}
 				}
-				mViewIndex = mChildren.get(mSwitchPosition);
+				mViewIndex = mChildren.get(mSwitchType);
 				for( int i = 0, size = mViewIndex.size(); i < size; i++ ){
 					if( mViewIndex.get(i).mPosition == switchPosition ){
 						mSwitchViewIndex = mViewIndex.get(i);
@@ -870,6 +917,10 @@ public class DraggableLinearListView extends LinearListView{
 						((LinearTag)mSwitchViewIndex.mView.getTag()).mPosition = originalPosition;
 					}
 				}
+			}
+			
+			if(null != mSwapListener){
+				mSwapListener.onSwap(mDragChildView.view, mDragChildView.position, switchView, switchPosition);
 			}
 
 			if(isBelow){
@@ -1082,6 +1133,9 @@ public class DraggableLinearListView extends LinearListView{
 		Bitmap bitmap = Utils.getBitmapFromView(view);
 
 		BitmapDrawable drawable = new BitmapDrawable(getResources(), bitmap);
+		if( mNeedForegroundMask ){
+			mImageForegroundMaskDrawable.setBounds(left, top, left + view.getWidth(), top + view.getHeight());
+		}
 
 		drawable.setBounds(new Rect(left, top, left + view.getWidth(), top + view.getHeight()));
 

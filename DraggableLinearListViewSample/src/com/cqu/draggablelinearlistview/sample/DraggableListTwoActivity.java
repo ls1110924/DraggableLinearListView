@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.cqu.draggablelinearlistview.DraggableLinearListView;
 import com.cqu.draggablelinearlistview.extend.DragTriggerType;
+import com.cqu.draggablelinearlistview.listener.OnViewSwapListener;
+import com.cqu.draggablelinearlistview.listener.OnDragStateChangeListener;
 import com.cqu.draggablelinearlistview.sample.adapter.DraggableListTwoActivityListAdapter;
 import com.cqu.draggablelinearlistview.sample.bean.OnGeneralListener;
 import com.cqu.draggablelinearlistview.sample.bean.draglisttwo.AdviceItemBean;
@@ -18,9 +20,12 @@ import com.cqu.draggablelinearlistview.sample.bean.draglisttwo.WindViewProvider;
 import com.cqu.draggablelinearlistview.sample.dataset.DraggableListDataSet;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 public class DraggableListTwoActivity extends BaseActionBarActivity{
 
@@ -43,6 +48,8 @@ public class DraggableListTwoActivity extends BaseActionBarActivity{
 		mListView = (DraggableLinearListView)findViewById(R.id.activity_draggablelisttwo_list);
 		mListView.setDragTriggerType(DragTriggerType.LONG_PRESS);
 		mListView.setScrollViewContainer( (ScrollView)findViewById(R.id.activity_draggablelisttwo_container) );
+		mListView.setOnViewSwapListener(mCommonListener);
+		mListView.setOnDragStateChangeListener(mCommonListener);
 		
 		init();
 		mListDataSet = new DraggableListDataSet();
@@ -77,17 +84,72 @@ public class DraggableListTwoActivity extends BaseActionBarActivity{
 		mProvidersList.add( AdviceViewProvider.class );
 	}
 	
-	private class CommonCallbackListener implements OnGeneralListener{
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.menu_draggablelisttwo, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item, int flag) {
+		switch( item.getItemId() ){
+			case R.id.action_draglisttwo_modify:
+				mListDataSet.modify();
+				mListAdapter.notifyDataSetChanged();
+				break;
+			case R.id.action_draglisttwo_restore:
+				mListDataSet.restore();
+				mListAdapter.notifyDataSetChanged();
+				break;
+		}
+		return true;
+	}
+	
+	private class CommonCallbackListener implements OnGeneralListener, OnViewSwapListener, OnDragStateChangeListener{
 
 		@Override
 		public void onClick(View v) {
 			switch( v.getId() ){
-			
+				case R.id.item_advice_dress:
+					Toast.makeText(DraggableListTwoActivity.this, "穿衣", Toast.LENGTH_SHORT).show();
+					break;
+				case R.id.item_advice_car:
+					Toast.makeText(DraggableListTwoActivity.this, "洗车", Toast.LENGTH_SHORT).show();
+					break;
+				case R.id.item_advice_excercise:
+					Toast.makeText(DraggableListTwoActivity.this, "锻炼", Toast.LENGTH_SHORT).show();
+					break;
+				case R.id.item_advice_flu:
+					Toast.makeText(DraggableListTwoActivity.this, "感冒", Toast.LENGTH_SHORT).show();
+					break;
 			}
 		}
 
 		@Override
 		public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {  }
+
+		@Override
+		public void onSwap(View firstView, int firstPosition, View secondView, int secondPosition) {
+			IItemBean mTemp = null;
+			if( firstPosition > secondPosition ){
+				mTemp = mOptionDataSet.get(secondPosition);
+				mOptionDataSet.remove(secondPosition);
+				mOptionDataSet.add(firstPosition, mTemp);
+			} else {
+				mTemp = mOptionDataSet.get(firstPosition);
+				mOptionDataSet.remove(firstPosition);
+				mOptionDataSet.add(secondPosition, mTemp);
+			}
+			
+		}
+
+		@Override
+		public void onStartDrag() {  }
+
+		@Override
+		public void onStopDrag() {
+			mListAdapter.notifyDataSetChanged();
+		}
 		
 	}
 	

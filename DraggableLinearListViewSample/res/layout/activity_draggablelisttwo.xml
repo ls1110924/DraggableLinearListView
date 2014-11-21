@@ -30,7 +30,8 @@
 			android:divider="@android:color/transparent"
 			android:showDividers="middle"
 			draggable:linearDividerHeight="10dp"
-			draggable:draggableTriggerType="shortpress" />
+			draggable:draggableTriggerType="shortpress"
+			draggable:needForeground="true" />
 	</LinearLayout>
 
 </ScrollView>
