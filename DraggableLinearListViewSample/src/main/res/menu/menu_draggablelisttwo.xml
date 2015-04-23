@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+	<item
+		android:id="@+id/action_draglisttwo_modify"
+		android:orderInCategory="1"
+		android:title="@string/action_draggablelisttwo_modify"
+		app:showAsAction="never"/>
+	
+	<item
+		android:id="@+id/action_draglisttwo_restore"
+		android:orderInCategory="1"
+		android:title="@string/action_draggablelisttwo_restore"
+		app:showAsAction="never"/>
+
+</menu>
+

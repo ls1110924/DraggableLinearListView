@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/activity_draggablelist_container"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content" >
+
+	<com.cqu.draggablelinearlistview.DraggableLinearListView
+		xmlns:draggable="http://schemas.android.com/apk/res-auto"
+		android:id="@+id/activity_draggablelist_list"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:divider="@android:color/transparent"
+		android:showDividers="middle"
+		draggable:linearDividerHeight="5dp"
+		draggable:draggableTriggerType="shortpress" >
+		
+		<TextView
+			android:id="@+id/activity_drag_child1"
+			android:layout_width="match_parent"
+			android:layout_height="50dp"
+			android:text="Message 1"
+			android:textColor="@android:color/black"
+			android:textSize="17sp"
+			android:gravity="center" />
+		
+		<TextView
+			android:id="@+id/activity_drag_child2"
+			android:layout_width="match_parent"
+			android:layout_height="30dp"
+			android:text="Message 2"
+			android:textColor="@android:color/black"
+			android:textSize="17sp"
+			android:gravity="center_vertical" />
+		
+		<TextView
+			android:id="@+id/activity_drag_child3"
+			android:layout_width="match_parent"
+			android:layout_height="60dp"
+			android:text="Message 3"
+			android:textColor="@android:color/black"
+			android:textSize="17sp"
+			android:gravity="center" />
+		
+		<Button
+			android:id="@+id/activity_drag_child4"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingTop="5dp"
+			android:paddingBottom="5dp"
+			android:text="Message 4"
+			android:textColor="@android:color/black"
+			android:textSize="17sp"
+			android:gravity="center" />
+		
+		<RelativeLayout
+			android:id="@+id/activity_drag_child5"
+			android:layout_width="match_parent"
+			android:layout_height="80dp" >
+			<Button
+				android:id="@+id/activity_drag_child5_button"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Message 5:Button"
+				android:textColor="@android:color/black"
+				android:textSize="17sp"
+				android:gravity="center"
+				android:layout_centerInParent="true" />
+		</RelativeLayout>
+		
+		<RelativeLayout
+			android:id="@+id/activity_drag_child6"
+			android:layout_width="match_parent"
+			android:layout_height="70dp" >
+			<TextView
+				android:id="@+id/activity_drag_child6_anchor"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:paddingTop="5dp"
+				android:paddingRight="10dp"
+				android:paddingBottom="5dp"
+				android:paddingLeft="10dp"
+				android:text="Message 6:Anchor"
+				android:textColor="@android:color/black"
+				android:textSize="17sp"
+				android:gravity="center"
+				android:layout_centerInParent="true" />
+		</RelativeLayout>
+		
+		<TextView
+			android:id="@+id/activity_drag_child7"
+			android:layout_width="match_parent"
+			android:layout_height="50dp"
+			android:text="Message 7"
+			android:textColor="@android:color/black"
+			android:textSize="17sp"
+			android:gravity="center" />
+		
+		<TextView
+			android:id="@+id/activity_drag_child8"
+			android:layout_width="match_parent"
+			android:layout_height="50dp"
+			android:text="Message 8"
+			android:textColor="@android:color/black"
+			android:textSize="17sp"
+			android:gravity="center" />
+		
+		<ImageView
+			android:id="@+id/activity_drag_child9"
+			android:layout_width="match_parent"
+			android:layout_height="160dp"
+			android:scaleType="centerCrop"
+			android:src="@drawable/jingxin"
+			android:contentDescription="@string/contentDescription" />
+		
+		<RelativeLayout
+			android:id="@+id/activity_drag_child10"
+			android:layout_width="match_parent"
+			android:layout_height="70dp" >
+			<TextView
+				android:id="@+id/activity_drag_child10_anchor"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:paddingTop="5dp"
+				android:paddingRight="10dp"
+				android:paddingBottom="5dp"
+				android:paddingLeft="10dp"
+				android:text="Message 10:Anchor"
+				android:textColor="@android:color/black"
+				android:textSize="17sp"
+				android:gravity="center"
+				android:layout_centerInParent="true" />
+		</RelativeLayout>
+		
+		<TextView
+			android:id="@+id/activity_drag_child11"
+			android:layout_width="match_parent"
+			android:layout_height="50dp"
+			android:text="Message 11"
+			android:textColor="@android:color/black"
+			android:textSize="17sp"
+			android:gravity="center" />
+		
+		<RelativeLayout
+			android:id="@+id/activity_drag_child12"
+			android:layout_width="match_parent"
+			android:layout_height="70dp" >
+			<ImageView
+				android:id="@+id/activity_drag_child12_anchor"
+				android:layout_width="50dp"
+				android:layout_height="50dp"
+				android:layout_centerVertical="true"
+				android:layout_marginLeft="10dp"
+				android:src="@drawable/anchor01"
+				android:scaleType="centerCrop"
+				android:contentDescription="@string/contentDescription" />
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Message 12"
+				android:textColor="@android:color/black"
+				android:textSize="17sp"
+				android:layout_centerInParent="true" />
+		</RelativeLayout>
+		
+		<TextView
+			android:id="@+id/activity_drag_child13"
+			android:layout_width="match_parent"
+			android:layout_height="50dp"
+			android:text="Message 13"
+			android:textColor="@android:color/black"
+			android:textSize="17sp"
+			android:gravity="center" />
+		
+	</com.cqu.draggablelinearlistview.DraggableLinearListView>
+
+</ScrollView>

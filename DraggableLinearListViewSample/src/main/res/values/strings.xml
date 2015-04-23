@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DraggableLinearListViewSample</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="nothing"></string>
+    <string name="contentDescription"></string>
+
+    <string name="title_one">DividerLinearLayout</string>
+    <string name="title_two">LinearListView</string>
+    <string name="title_three">LinearListView2</string>
+    <string name="title_four">DraggableListView1</string>
+    <string name="title_five">DraggableListView2</string>
+    <string name="title_six">测试页面</string>
+
+    <string name="action_divider_modify_refreshone">刷新一条数据</string>
+    <string name="action_divider_modify_refreshgroup">刷新一组数据</string>
+    <string name="action_divider_modify_refreshall">刷新全部数据</string>
+    <string name="action_divider_modify_rebuild">重构全部数据</string>
+
+    <string name="action_linearlist_modify_refreshone">修改第一条数据</string>
+    <string name="action_linearlist_modify_refreshgroup">修改2-4数据</string>
+    <string name="action_linearlist_modify_refreshall">还原修改的数据</string>
+    <string name="action_linearlist_modify_rebuild">变更数据集大小</string>
+
+    <string name="action_draggablelisttwo_modify">修改数据并全部刷新</string>
+    <string name="action_draggablelisttwo_restore">还原全部数据并刷新</string>
+
+
+</resources>

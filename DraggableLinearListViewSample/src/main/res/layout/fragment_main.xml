@@ -1,0 +1,104 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:paddingBottom="@dimen/activity_vertical_margin"
+	android:paddingLeft="@dimen/activity_horizontal_margin"
+	android:paddingRight="@dimen/activity_horizontal_margin"
+	android:paddingTop="@dimen/activity_vertical_margin"
+	tools:context="com.cqu.draggablelinearlistview.sample.MainActivity$PlaceholderFragment" >
+
+	<LinearLayout
+		android:id="@+id/fragment_main_dividerlayout"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:orientation="horizontal"
+		android:background="@drawable/button_selector" >
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="带分割线的LinearLayout"
+			android:textColor="@android:color/black"
+			android:textSize="17sp"
+			android:singleLine="true"
+			android:layout_gravity="center_vertical" />
+	</LinearLayout>
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:background="@android:color/black" />
+	<LinearLayout
+		android:id="@+id/fragment_main_linearlist"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:orientation="horizontal"
+		android:background="@drawable/button_selector" >
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="基于LinearLayout的ListView1"
+			android:textColor="@android:color/black"
+			android:textSize="17sp"
+			android:singleLine="true"
+			android:layout_gravity="center_vertical" />
+	</LinearLayout>
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:background="@android:color/black" />
+	<LinearLayout
+		android:id="@+id/fragment_main_linearlisttwo"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:orientation="horizontal"
+		android:background="@drawable/button_selector" >
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="基于LinearLayout的ListView2"
+			android:textColor="@android:color/black"
+			android:textSize="17sp"
+			android:singleLine="true"
+			android:layout_gravity="center_vertical" />
+	</LinearLayout>
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:background="@android:color/black" />
+	<LinearLayout
+		android:id="@+id/fragment_main_draggablelinearlistone"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:orientation="horizontal"
+		android:background="@drawable/button_selector" >
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="基于LinearLayout的可拖拽ListView1"
+			android:textColor="@android:color/black"
+			android:textSize="17sp"
+			android:singleLine="true"
+			android:layout_gravity="center_vertical" />
+	</LinearLayout>
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:background="@android:color/black" />
+	<LinearLayout
+		android:id="@+id/fragment_main_draggablelinearlisttwo"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:orientation="horizontal"
+		android:background="@drawable/button_selector" >
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="基于LinearLayout的可拖拽ListView2"
+			android:textColor="@android:color/black"
+			android:textSize="17sp"
+			android:singleLine="true"
+			android:layout_gravity="center_vertical" />
+	</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/activity_draggablelisttwo_container"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/background_cloudy_day_mask" >
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical" >
+		<ImageView
+			android:layout_width="match_parent"
+			android:layout_height="150dp"
+			android:src="@drawable/bgcover"
+			android:scaleType="fitXY"
+			android:contentDescription="@string/contentDescription" />
+		<ImageView
+			android:layout_width="match_parent"
+			android:layout_height="400dp"
+			android:layout_marginTop="10dp"
+			android:src="@drawable/bgcover2"
+			android:scaleType="fitXY"
+			android:contentDescription="@string/contentDescription" />
+		<com.cqu.draggablelinearlistview.DraggableLinearListView
+			xmlns:draggable="http://schemas.android.com/apk/res-auto"
+			android:id="@+id/activity_draggablelisttwo_list"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:divider="@android:color/transparent"
+			android:showDividers="middle"
+			draggable:linearDividerHeight="10dp"
+			draggable:draggableTriggerType="shortpress"
+			draggable:needForeground="true" />
+	</LinearLayout>
+
+</ScrollView>

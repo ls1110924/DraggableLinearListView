@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:linear="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
+	
+	<HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+		<com.cqu.draggablelinearlistview.LinearListView
+			android:id="@+id/activity_linearlist_horizontal_list"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:divider="#00f"
+			android:dividerPadding="2dp"
+			android:orientation="horizontal"
+			android:showDividers="middle"
+			linear:linearDividerWidth="2dp" />
+	</HorizontalScrollView>
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" >
+		<com.cqu.draggablelinearlistview.LinearListView
+			android:id="@+id/activity_linearlist_list"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:divider="@drawable/divider_vertical"
+			android:dividerPadding="8dp"
+			android:orientation="vertical"
+			android:showDividers="middle" />
+	</ScrollView>
+
+</LinearLayout>

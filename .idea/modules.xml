@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DraggableLinearListView.iml" filepath="$PROJECT_DIR$/DraggableLinearListView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DraggableLinearListViewLib/DraggableLinearListViewLib.iml" filepath="$PROJECT_DIR$/DraggableLinearListViewLib/DraggableLinearListViewLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DraggableLinearListViewSample/DraggableLinearListViewSample.iml" filepath="$PROJECT_DIR$/DraggableLinearListViewSample/DraggableLinearListViewSample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SwitchButton/SwitchButton.iml" filepath="$PROJECT_DIR$/SwitchButton/SwitchButton.iml" />
+    </modules>
+  </component>
+</project>

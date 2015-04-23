@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:background="@drawable/fragment_mask_black" >
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingLeft="10dp"
+		android:paddingTop="3dp"
+		android:paddingBottom="3dp"
+		android:text="风速"
+		android:textColor="@android:color/white"
+		android:textSize="15sp" />
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="0.8dp"
+		android:background="@android:color/white" />
+	
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:weightSum="5"
+		android:paddingTop="5dp"
+		android:paddingLeft="5dp"
+		android:paddingRight="5dp"
+		android:paddingBottom="10dp" >
+		<RelativeLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="2"
+			android:layout_gravity="center_vertical" >
+			<ImageView
+				android:layout_width="120dp"
+				android:layout_height="80dp"
+				android:src="@drawable/ic_windmill_house"
+				android:scaleType="fitXY"
+				android:contentDescription="@string/contentDescription" />
+			<ImageView
+				android:id="@+id/item_windmill"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:layout_centerInParent="true"
+				android:src="@drawable/ic_windmill"
+				android:scaleType="fitXY"
+				android:contentDescription="@string/contentDescription" />
+		</RelativeLayout>
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="3"
+			android:orientation="vertical" >
+			<TextView
+				android:id="@+id/item_wind_direction"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:singleLine="true"
+				android:textColor="@android:color/white"
+				android:textSize="14sp"
+				android:layout_marginTop="5dp"  />
+			<TextView
+				android:id="@+id/item_wind_speed"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:singleLine="true"
+				android:textColor="@android:color/white"
+				android:textSize="14sp"
+				android:layout_marginTop="5dp" />
+			<TextView
+				android:id="@+id/item_wind_level"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:singleLine="true"
+				android:textColor="@android:color/white"
+				android:textSize="14sp"
+				android:layout_marginTop="5dp" />
+		</LinearLayout>
+	</LinearLayout>
+
+</LinearLayout>
