@@ -1,1 +1,4 @@
 include ':DraggableLinearListViewSample', ':DraggableLinearListViewLib', ':SwitchButton'
+
+def submoduleProject = project(':DraggableLinearListViewLib')
+submoduleProject.name = 'draggable-linear-listview'
