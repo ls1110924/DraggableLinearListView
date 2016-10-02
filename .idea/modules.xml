@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DraggableLinearListView.iml" filepath="$PROJECT_DIR$/DraggableLinearListView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/DraggableLinearListViewSample/DraggableLinearListViewSample.iml" filepath="$PROJECT_DIR$/DraggableLinearListViewSample/DraggableLinearListViewSample.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SwitchButton/SwitchButton.iml" filepath="$PROJECT_DIR$/SwitchButton/SwitchButton.iml" />
-      <module fileurl="file://$PROJECT_DIR$/DraggableLinearListViewLib/draggable-linear-listview.iml" filepath="$PROJECT_DIR$/DraggableLinearListViewLib/draggable-linear-listview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/draggablelinearlistview-lib/draggable-linear-listview.iml" filepath="$PROJECT_DIR$/draggablelinearlistview-lib/draggable-linear-listview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/switchbutton-lib/switchbutton-lib.iml" filepath="$PROJECT_DIR$/switchbutton-lib/switchbutton-lib.iml" />
     </modules>
   </component>
 </project>

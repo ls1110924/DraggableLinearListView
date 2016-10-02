@@ -26,7 +26,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -44,9 +45,27 @@ Temporary Items
 
 #android studio ignore
 .gradle
+.gradle/
 /local.properties
+local.properties
 /.idea/workspace.xml
 /.idea/libraries
 .DS_Store
 /build
+build/
 /captures
+
+
+#filter dir
+bin/
+gen/
+
+
+#intellij files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+#cdt files
+.settings/
